@@ -1,0 +1,29 @@
+
+backend:
+  name: github
+  repo: wmedsantos/ubemtem
+  branch: main
+
+media_folder: "src/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "publicacoes"
+    label: "Publicações"
+    folder: "src/publicacoes"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Corpo", name: "body", widget: "markdown"}
+
+  - name: "eventos"
+    label: "Eventos"
+    folder: "src/eventos"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Descrição", name: "body", widget: "markdown"}
