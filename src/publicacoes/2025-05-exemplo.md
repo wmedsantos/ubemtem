@@ -1,5 +1,5 @@
-
 ---
+layout: layout.njk
 title: "Primeira Publicação"
 date: 2025-05-20
 ---

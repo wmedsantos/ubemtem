@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/ubemtem/styles/main.css">
+</head>
+<body>
+  {% include "nav.njk" %}
+  
+  <main>
+    {{ content | safe }}
+  </main>
+  
+  {% include "footer.njk" %}
+</body>
+</html>
