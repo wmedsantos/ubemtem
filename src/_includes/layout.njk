@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>{{ title }}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} - UBemtem</title>
   <link rel="stylesheet" href="/ubemtem/styles/main.css">
 </head>
 <body>
-  {% include "nav.njk" %}
-  
+
+  <header>
+    <h1>UBemtem</h1>
+{% include "nav.njk" %}
+  </header>
+
   <main>
     {{ content | safe }}
   </main>
-  
-  {% include "footer.njk" %}
+
+  <footer>
+    <p>© UBemtem - 2025 | <a href="https://www.instagram.com/ubemtem/" target="_blank">Instagram</a></p>
+  </footer>
+
 </body>
 </html>
