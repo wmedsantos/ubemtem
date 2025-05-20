@@ -11,6 +11,7 @@ module.exports = function(eleventyConfig) {
   //eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("src/styles");
   eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/js");
   return {
     dir: {
       input: "src",

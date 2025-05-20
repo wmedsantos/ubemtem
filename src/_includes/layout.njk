@@ -3,23 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }} - UBemtem</title>
+  <title>{{ title }} – UBemtem</title>
   <link rel="stylesheet" href="/styles/main.css">
+  <script defer src="/js/carousel.js"></script>
 </head>
 <body>
-
-  <header>
-    <h1>UBemtem</h1>
-{% include "nav.njk" %}
-  </header>
-
-  <main>
-    {{ content | safe }}
-  </main>
-
-  <footer>
-    <p>© UBemtem - 2025 | <a href="https://www.instagram.com/ubemtem/" target="_blank">Instagram</a></p>
-  </footer>
-
+  <div class="wrapper">
+    {% include "nav.njk" %}
+    <div class="content">
+      {{ content | safe }}
+    </div>
+  </div>
 </body>
 </html>
