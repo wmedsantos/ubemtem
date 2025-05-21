@@ -1,0 +1,39 @@
+name: Build Eleventy & Deploy Docs
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true    # necessário para o commit de volta
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Eleventy
+        run: npm run build
+
+      - name: Copy to docs
+        run: |
+          rm -rf docs
+          mkdir docs
+          cp -r _site/* docs/
+
+      - name: Commit and push updates
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Ci: rebuild site after source update"
+          file_pattern: docs/*
+          branch: main
