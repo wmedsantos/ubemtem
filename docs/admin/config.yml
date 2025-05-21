@@ -1,10 +1,9 @@
-
 backend:
   name: github
   repo: wmedsantos/ubemtem
   branch: main
 
-media_folder: "src/images/uploads"
+media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
@@ -27,3 +26,5 @@ collections:
       - {label: "Título", name: "title", widget: "string"}
       - {label: "Data", name: "date", widget: "datetime"}
       - {label: "Descrição", name: "body", widget: "markdown"}
+      - {label: "Link", name: "link", widget: "string"}
+      - {label: "Imagem", name: "image", widget: "image"}
