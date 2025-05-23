@@ -4,7 +4,9 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",    
-    "postbuild": "rmdir /s /q docs && mkdir docs && xcopy _site docs /E /I /Y && xcopy src\\admin\\config.yml docs\\admin\\config.yml /Y"
+     "postbuild:win": "rmdir /s /q docs && mkdir docs && xcopy _site docs /E /I /Y && xcopy src\\admin\\config.yml docs\\admin\\config.yml /Y",
+     "postbuild:mac": "rm -rf docs && mkdir docs && cp -r _site/* docs/ && cp -r src/admin/config.yml docs/admin/config.yml",
+     "postbuild:unix": "rm -rf docs && mkdir docs && cp -r _site/* docs/ && cp -r src/admin/config.yml docs/admin/config.yml"
     },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0"
