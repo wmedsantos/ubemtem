@@ -31,9 +31,25 @@ jobs:
           mkdir docs
           cp -r _site/* docs/
 
-      - name: Commit and push updates
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Ci: rebuild site after source update"
-          file_pattern: docs/*
-          branch: main
+      # --- Your Manual Push Steps (using PAT) ---
+      - name: Set up Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Push changes
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/wmedsantos/ubemtem.git
+          git add docs/
+          git commit -m "Ci: rebuild site after source update" || echo "No changes to commit"
+          git push origin HEAD:main
+
+      # --- Or keep this auto-commit action if you prefer ---
+      # - name: Commit and push updates
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: "Ci: rebuild site after source update"
+      #     file_pattern: docs/*
+      #     branch: main
