@@ -12,6 +12,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/CNAME");
+  eleventyConfig.addPassthroughCopy("src/_redirects");
   // evita injetar o script de live-reload nas URLs que começam com /admin
   eleventyConfig.setBrowserSyncConfig({
     snippetOptions: {
