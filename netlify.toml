@@ -1,4 +1,10 @@
 [[redirects]]
+  from = "/biblioteca/*"
+  to = "/biblioteca/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "https://ubemtem.myportfolio.com/:splat"
   status = 200
